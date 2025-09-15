@@ -11,7 +11,7 @@ const Footer = () => {
             Jedná se o fiktivní web. Web nesbírá osobní údaje ani nenabízí služby. Údaje nejsou pravdivé.
           </p>
           <p className="text-gray-600">
-            <span className="font-bold">Vytvořil:</span> Michael Tvrdík, tvrdikmichael@gmail.com
+            <span className="font-bold">Vytvořil:</span> Michael Tvrdík
           </p>
           <p className="text-gray-500 text-sm">
             Všechny fotografie jsou ilustrativní a pocházejí ze{' '}
