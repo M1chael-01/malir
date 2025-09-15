@@ -8,25 +8,19 @@ const Footer = () => {
         {/* Text */}
         <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start">
           <p className="text-center md:text-left text-gray-600">
-            Jedná se o fiktivní web. Vytvořil <span className="font-bold">Michael Tvrdík</span>. Údaje nejsou pravdivé
+            Jedná se o fiktivní web.Web nesbírá osobních údajů,nenabízí služby.Údaje nejsou pravdivé 
+          </p>
+          <p className='text-center md:text-left text-gray-600'>
+             <span className="font-bold">Info:</span> tvrdikmichael@gmail.com, Michael Tvrdík
           </p>
           <p className="text-center md:text-left text-gray-500 text-sm">
-            Všechny použité fotografie jsou ilustrativní a pocházejí ze <a href="https://www.freepik.com" className="underline hover:text-blue-500">Freepik</a>.
+            Všechny fotografie jsou ilustrativní a pocházejí ze <a href="https://www.freepik.com" className="underline hover:text-blue-500">Freepik</a>.
+          
+            
           </p>
         </div>
 
-        {/* Sociální ikony */}
-        <div className="flex gap-4">
-          <a href="#" className="text-gray-500 hover:text-blue-500 transition">
-            <FaFacebook size={24} />
-          </a>
-          <a href="#" className="text-gray-500 hover:text-pink-500 transition">
-            <FaInstagram size={24} />
-          </a>
-          <a href="#" className="text-gray-500 hover:text-blue-700 transition">
-            <FaLinkedin size={24} />
-          </a>
-        </div>
+       
       </div>
     </footer>
   );

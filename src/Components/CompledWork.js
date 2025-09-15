@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Brush } from 'lucide-react';
 import { motion } from 'framer-motion';
 import image1 from "../Images/work-1.jpg";
 import image2 from "../Images/work-2.jpg";
 import image3 from "../Images/work-3.jpg";
 import image4 from "../Images/work-4.jpg";
+import Alert from './Alert';
 
 const CompletedWork = () => {
+  const [showAlert, setShowAlert] = useState(false);
+
   const works = [
     {
       title: "Moderní byt v centru",
@@ -30,7 +33,7 @@ const CompletedWork = () => {
     },
   ];
 
-  // Varianta animace pro každý grid item
+  // Animace pro grid items
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (i) => ({
@@ -39,6 +42,14 @@ const CompletedWork = () => {
       transition: { delay: i * 0.2, duration: 0.6, ease: 'easeOut' },
     }),
   };
+
+  // Skrýt alert po 2 sekundách
+  useEffect(() => {
+    if (showAlert) {
+      const timer = setTimeout(() => setShowAlert(false), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [showAlert]);
 
   return (
     <section className="relative py-20 overflow-hidden" id="prace">
@@ -82,8 +93,8 @@ const CompletedWork = () => {
 
         {/* CTA tlačítko */}
         <div className="text-center mt-12">
-          <motion.a
-            href="#kontakt"
+          <motion.button
+            onClick={() => setShowAlert(true)}
             className="w-[400px] inline-block px-10 bg-blue-500 text-white font-bold py-4 rounded-[25px] text-[18px] shadow-lg hover:scale-105 transform transition text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -91,9 +102,14 @@ const CompletedWork = () => {
             transition={{ duration: 0.6 }}
           >
             Chci taky vymalovat
-          </motion.a>
+          </motion.button>
         </div>
       </div>
+
+      {/* Alert */}
+      {showAlert && (
+        <Alert msg="Operace zatím nelze provést, jelikož se jedná pouze o ukázku." />
+      )}
     </section>
   );
 };

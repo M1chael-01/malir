@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Brush, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Alert from "./Alert";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,11 +24,12 @@ const Header = () => {
   }, []);
 
   return (
-    <header
-      className={`fixed w-full z-50 px-6 md:px-12 py-4 md:py-6 transition-all duration-300 ${
-        scrolled ? "backdrop-blur bg-white/80 shadow-md" : "bg-white/50"
-      }`}
-    >
+   <header
+  className={`fixed w-full z-[9999] px-8 md:px-12 py-4 md:py-8 transition-all duration-300 ${
+    scrolled ? "backdrop-blur bg-white/80 shadow-md" : "bg-white/50"
+  }`}
+>
+
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="text-4xl md:text-5xl font-bold font-poppins text-gray-900 flex items-center space-x-2">
@@ -51,9 +53,7 @@ const Header = () => {
 
         {/* CTA Button */}
         <div className="hidden custom:flex">
-          <button className="bg-blue-500 text-white px-6 md:px-8 py-2 md:py-3 rounded-full text-lg md:text-xl font-medium hover:bg-blue-600 transition shadow-md hover:shadow-lg">
-            Kolik to stojí?
-          </button>
+           <a href="#sluzby">          <button className="bg-blue-500 text-white px-6 md:px-8 py-2 md:py-3 rounded-full text-lg md:text-xl font-medium hover:bg-blue-600 transition shadow-md hover:shadow-lg">Více informací</button></a>  
         </div>
 
         {/* Mobile Menu Button */}

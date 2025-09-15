@@ -1,44 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import blog1 from "../Images/blog-1.jpg";
 import blog2 from "../Images/blog-2.jpg";
 import blog3 from "../Images/blog-3.jpg";
 import blog4 from "../Images/blog-3.jpg";
+import Alert from "./Alert";
 
 const Blog = () => {
   const posts = [
     {
       title: "Jak vybrat správnou barvu do obýváku",
-      image:blog1,
+      image: blog1,
       description:
         "Tipy a triky, jak vytvořit příjemnou atmosféru v obývacím pokoji.",
       date: "2025-09-11",
     },
     {
       title: "Malování kanceláří bez stresu",
-      image:blog2,
+      image: blog2,
       description:
         "Jak efektivně malovat pracovní prostory a udržet produktivitu zaměstnanců.",
       date: "2025-08-28",
     },
     {
       title: "Dekorativní techniky pro moderní interiéry",
-      image:blog3,
-      description:
-        "Objevte moderní trendy a efektní způsoby dekorace stěn.",
+      image: blog3,
+      description: "Objevte moderní trendy a efektní způsoby dekorace stěn.",
       date: "2025-08-15",
     },
     {
       title: "Renovace starého domu krok za krokem",
-      image:blog4,
-      description:
-        "Praktický průvodce renovací domu od návrhu po finální malbu.",
+      image: blog4,
+      description: "Praktický průvodce renovací domu od návrhu po finální malbu.",
       date: "2025-07-30",
     },
   ];
 
+  const [showAlert, setShowAlert] = useState(false);
+
+  useEffect(() => {
+    if (showAlert) {
+      const timer = setTimeout(() => setShowAlert(false), 1200);
+      return () => clearTimeout(timer);
+    }
+  }, [showAlert]);
+
   return (
-    <section className="py-20" id = "blog">
+    <section className="relative py-20" id="blog">
       <div className="container mx-auto px-8">
         <motion.h2
           className="relative text-[2.9rem] font-bold text-center mb-12 text-gray-900 mt-[60px] 
@@ -86,14 +94,18 @@ const Blog = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <a
-            href="#blog"
-            className="w-[400px] inline-block px-10 bg-blue-500 text-white font-bold py-4 rounded-[25px] text-[18px] shadow-lg hover:scale-105 transform transition text-center"
+          <button
+            onClick={() => setShowAlert(true)}
+            className="w-[400px] px-10 bg-blue-500 text-white font-bold py-4 rounded-[25px] text-[18px] shadow-lg hover:scale-105 transform transition"
           >
             Zobrazit více článků
-          </a>
+          </button>
         </motion.div>
       </div>
+
+      {showAlert && (
+        <Alert msg="Operace zatím nelze provést, jelikož se jedná pouze o ukázku." />
+      )}
     </section>
   );
 };

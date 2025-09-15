@@ -1,8 +1,18 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { Brush } from "lucide-react";
 import { motion } from "framer-motion";
+import Alert from "./Alert";
 
 const Hero = () => {
+  const [showAlert, setShowAlert] = useState(false);
+
+  useEffect(() => {
+    if (showAlert) {
+      const timer = setTimeout(() => setShowAlert(false), 1200);
+      return () => clearTimeout(timer); // vyčistí timeout, když se komponenta odmountuje
+    }
+  }, [showAlert]);
+
   return (
     <section className="relative bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 overflow-hidden">
       {/* Dekorativní ikona */}
@@ -16,9 +26,12 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-poppins text-gray-900" style={{ lineHeight: "5.2rem" }}>
-  Profesionální malířské služby pro Vás
-</h1>
+          <h1
+            className="text-4xl sm:text-5xl md:text-6xl font-bold font-poppins text-gray-900"
+            style={{ lineHeight: "5.2rem" }}
+          >
+            Profesionální malířské služby pro Vás
+          </h1>
 
           <p className="text-lg sm:text-xl text-gray-700">
             Proměňte vaše prostory s moderními barvami, precizními technikami a
@@ -32,12 +45,18 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            <button className="w-full sm:w-auto bg-white text-black px-6 py-3 sm:px-8 sm:py-4 rounded-full text-lg sm:text-xl font-medium hover:scale-105 transform transition">
+            <button
+              onClick={() => setShowAlert(true)}
+              className="w-full sm:w-auto bg-white text-black px-6 py-3 sm:px-8 sm:py-4 rounded-full text-lg sm:text-xl font-medium hover:scale-105 transform transition"
+            >
               Zjistit cenu
             </button>
-            <button className="w-full sm:w-auto bg-blue-400 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full text-lg sm:text-xl font-medium hover:bg-blue-500 transition-colors duration-300">
-              Naše práce
-            </button>
+
+            <a href="#prace">
+              <button className="w-full sm:w-auto bg-blue-400 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full text-lg sm:text-xl font-medium hover:bg-blue-500 transition-colors duration-300">
+                Naše práce
+              </button>
+            </a>
           </motion.div>
         </motion.div>
 
@@ -53,10 +72,15 @@ const Hero = () => {
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ repeat: Infinity, duration: 3 }}
           >
-            <span className="text-6xl sm:text-8xl md:text-9xl text-white opacity-20">🎨</span>
+            <span className="text-6xl sm:text-8xl md:text-9xl text-white opacity-20">
+              🎨
+            </span>
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Alert */}
+      {showAlert && <Alert />}
     </section>
   );
 };
