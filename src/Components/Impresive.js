@@ -34,7 +34,7 @@ const Impressive = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6 sm:px-8">
         <h2 className="text-[2.5rem] md:text-[2.9rem] font-bold text-center mb-16 text-gray-900 relative after:content-[''] after:block after:w-28 after:h-1 after:bg-yellow-500 after:mx-auto after:mt-4">
-          Naše přednosti
+          Naše přednosti 
         </h2>
         <div className="flex flex-wrap justify-center gap-8">
           {cards.map((card, i) => (
