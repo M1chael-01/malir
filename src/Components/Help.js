@@ -31,12 +31,11 @@ const Help = () => {
   ];
 
   return (
-    <section className="bg-white py-20 px-6" id="sluzby">
-      <div className="max-w-6xl mx-auto mt-[4rem]">
-     <h2 className="text-[8.2rem] md:text-[2.9rem] font-bold text-center mb-16 text-gray-900 relative after:content-[''] after:block after:w-28 after:h-1 after:bg-yellow-500 after:mx-auto after:mt-4">
-  S čím vám můžeme pomoci
-</h2>
-
+    <section className="bg-white py-20 px-6" id = "sluzby">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="mt-[60px] relative text-[2.9rem] font-bold text-center mb-12 text-gray-900 after:content-[''] after:block after:w-28 after:h-1 after:bg-yellow-500 after:mx-auto after:mt-4">
+          S čím vám můžeme pomoci
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
           {items.map((item, idx) => (
