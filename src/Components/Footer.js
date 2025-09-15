@@ -14,10 +14,8 @@ const Footer = () => {
             <span className="font-bold">Vytvořil:</span> Michael Tvrdík
           </p>
           <p className="text-gray-500 text-sm">
-            Všechny fotografie jsou ilustrativní a pocházejí ze{' '}
-            <a href="https://www.freepik.com" className="underline hover:text-blue-500">
-              Freepik
-            </a>.
+             <a href="https://www.freepik.com" className="underline hover:text-blue-500">
+              Všechny fotografie jsou ilustrativní </a>.
           </p>
         </div>
       </div>
