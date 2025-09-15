@@ -88,9 +88,11 @@ const Header = () => {
             {link.name}
           </a>
         ))}
-        <button className="bg-blue-500 text-white px-6 py-2 rounded-full text-base sm:text-lg font-medium hover:bg-blue-600 transition mt-2">
-          Kolik to stojí?
-        </button>
+         <a href="#sluzby">
+  <button className="bg-blue-500 text-white px-6 py-2 rounded-full text-base sm:text-lg font-medium hover:bg-blue-600 transition mt-2">
+    Více informací
+  </button>
+</a>
       </motion.div>
     )}
   </AnimatePresence>
