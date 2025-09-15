@@ -8,7 +8,7 @@ const Footer = () => {
         {/* Text */}
         <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start text-center md:text-left">
           <p className="text-gray-600">
-            Jedná se o fiktivní web. Web nesbírá osobní údaje ani nenabízí služby. Údaje nejsou pravdivé.
+            Jedná se o fiktivní web. Web nesbírá osobní údaje, nenabízí služby. Údaje nejsou pravdivé.
           </p>
           <p className="text-gray-600">
             <span className="font-bold">Vytvořil:</span> Michael Tvrdík
